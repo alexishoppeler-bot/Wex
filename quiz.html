@@ -160,29 +160,234 @@ Choisis la bonne réponse.
 const series = [
   [
     {
-      q:"Que dois-tu respecter au travail ?",
-      choices:["Les consignes","Les vacances","Les amis"],
+      q:"Pourquoi est-il important de respecter les consignes au travail ?",
+      choices:["Pour travailler correctement","Pour finir plus tôt","Pour éviter les collègues"],
       answer:0
     },
     {
-      q:"Quand arrives-tu au travail ?",
-      choices:["En retard","À l’heure","Quand je veux"],
-      answer:1
+      q:"Que fais-tu si une consigne n’est pas claire ?",
+      choices:["Je demande des explications","Je fais au hasard","Je ne fais rien"],
+      answer:0
     }
   ],
   [
     {
-      q:"Que fais-tu avant de commencer ?",
-      choices:["Je prépare le matériel","Je pars","Je téléphone"],
+      q:"Comment réagis-tu face à un imprévu au travail ?",
+      choices:["Je m’adapte","Je panique","Je pars"],
       answer:0
     },
     {
-      q:"Comment travailles-tu ?",
-      choices:["Seul","N’importe comment","En équipe"],
-      answer:2
+      q:"Que fais-tu si tu termines ton travail plus tôt ?",
+      choices:["Je demande une autre tâche","Je quitte le poste","Je me cache"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Pourquoi est-il important de travailler en équipe ?",
+      choices:["Pour être plus efficace","Pour parler","Pour éviter le travail"],
+      answer:0
+    },
+    {
+      q:"Que fais-tu en cas de conflit avec un collègue ?",
+      choices:["Je discute calmement","Je crie","J’ignore"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Comment montres-tu ton professionnalisme ?",
+      choices:["Par mon attitude et mon travail","Par mes vêtements","Par mes pauses"],
+      answer:0
+    },
+    {
+      q:"Que fais-tu si tu fais une erreur ?",
+      choices:["Je la signale","Je la cache","Je continue"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Pourquoi faut-il respecter les horaires ?",
+      choices:["Pour assurer l’organisation","Pour finir vite","Pour éviter le chef"],
+      answer:0
+    },
+    {
+      q:"Que fais-tu si tu risques d’être en retard ?",
+      choices:["Je préviens","Je n’arrive pas","Je mens"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Comment assures-tu la sécurité au travail ?",
+      choices:["En respectant les règles","En travaillant vite","En improvisant"],
+      answer:0
+    },
+    {
+      q:"Que fais-tu si tu vois une situation dangereuse ?",
+      choices:["Je la signale","Je regarde","Je pars"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Pourquoi faut-il préparer le matériel avant de commencer ?",
+      choices:["Pour gagner du temps","Pour faire une pause","Pour attendre"],
+      answer:0
+    },
+    {
+      q:"Que fais-tu après avoir utilisé un outil ?",
+      choices:["Je le range","Je le laisse","Je le jette"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Comment organises-tu ta journée de travail ?",
+      choices:["En respectant les priorités","En improvisant","En attendant"],
+      answer:0
+    },
+    {
+      q:"Que fais-tu si tu as trop de tâches ?",
+      choices:["Je demande de l’aide","Je pars","Je refuse"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Pourquoi est-il important de communiquer au travail ?",
+      choices:["Pour éviter les erreurs","Pour parler","Pour perdre du temps"],
+      answer:0
+    },
+    {
+      q:"À qui t’adresses-tu en cas de problème ?",
+      choices:["À mon responsable","À personne","Aux clients"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Comment réagis-tu face à une critique constructive ?",
+      choices:["Je l’accepte","Je me fâche","Je l’ignore"],
+      answer:0
+    },
+    {
+      q:"Pourquoi faut-il rester calme au travail ?",
+      choices:["Pour bien travailler","Pour finir vite","Pour partir"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Que fais-tu pour maintenir un bon rythme de travail ?",
+      choices:["Je m’organise","Je me presse","Je ralentis"],
+      answer:0
+    },
+    {
+      q:"Que fais-tu pendant ta pause ?",
+      choices:["Je me repose","Je travaille","Je dérange"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Pourquoi est-il important de laisser un poste propre ?",
+      choices:["Pour la personne suivante","Pour soi","Pour le chef seulement"],
+      answer:0
+    },
+    {
+      q:"Que fais-tu avant de quitter ton poste ?",
+      choices:["Je vérifie","Je pars vite","J’oublie"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Comment montres-tu ton respect envers les collègues ?",
+      choices:["Par mon comportement","Par le silence","Par la vitesse"],
+      answer:0
+    },
+    {
+      q:"Que fais-tu si un collègue a besoin d’aide ?",
+      choices:["Je l’aide","Je refuse","J’ignore"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Pourquoi faut-il suivre les procédures ?",
+      choices:["Pour garantir la qualité","Pour perdre du temps","Pour compliquer"],
+      answer:0
+    },
+    {
+      q:"Que fais-tu si une procédure change ?",
+      choices:["Je m’adapte","Je continue pareil","Je refuse"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Comment assures-tu un travail de qualité ?",
+      choices:["En étant attentif","En allant vite","En improvisant"],
+      answer:0
+    },
+    {
+      q:"Que fais-tu si tu n’as pas terminé à temps ?",
+      choices:["Je préviens","Je cache","Je pars"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Pourquoi est-il important d’être fiable au travail ?",
+      choices:["Pour avoir confiance","Pour finir tôt","Pour être tranquille"],
+      answer:0
+    },
+    {
+      q:"Que fais-tu pour gagner la confiance ?",
+      choices:["Je respecte mes engagements","Je parle beaucoup","Je promets"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Comment gères-tu la pression au travail ?",
+      choices:["En restant organisé","En paniquant","En abandonnant"],
+      answer:0
+    },
+    {
+      q:"Que fais-tu si tu es fatigué ?",
+      choices:["Je respecte la pause","Je continue mal","Je pars"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Pourquoi est-il important de signaler un problème ?",
+      choices:["Pour éviter des erreurs","Pour se plaindre","Pour arrêter"],
+      answer:0
+    },
+    {
+      q:"Quand signales-tu un problème ?",
+      choices:["Dès que possible","À la fin du mois","Jamais"],
+      answer:0
+    }
+  ],
+  [
+    {
+      q:"Comment contribues-tu à une bonne ambiance de travail ?",
+      choices:["Par une attitude positive","Par le silence","Par la critique"],
+      answer:0
+    },
+    {
+      q:"Pourquoi est-il important d’avoir une attitude professionnelle ?",
+      choices:["Pour bien s’intégrer","Pour finir tôt","Pour éviter le travail"],
+      answer:0
     }
   ]
 ];
+
 
 function shuffle(a){return [...a].sort(()=>Math.random()-0.5);}
 

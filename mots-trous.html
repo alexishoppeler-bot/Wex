@@ -146,9 +146,99 @@ const series = [
       { phrase:"Je respecte les règles de ___.", solution:"sécurité", choix:["sécurité","pause","équipe"] },
       { phrase:"Je prépare le ___ avant de commencer.", solution:"matériel", choix:["matériel","retard","pause"] }
     ]
+  },
+  {
+    titre:"Série 2",
+    data:[
+      { phrase:"Je commence le travail à l’___.", solution:"heure", choix:["heure","pause","retard"] },
+      { phrase:"Je respecte les ___.", solution:"horaires", choix:["horaires","bureaux","pauses"] },
+      { phrase:"Je termine mon ___ à temps.", solution:"travail", choix:["travail","pause","retard"] },
+      { phrase:"Je prends une ___ à dix heures.", solution:"pause", choix:["pause","équipe","travail"] },
+      { phrase:"Je reviens de pause à l’___.", solution:"heure", choix:["heure","retard","matériel"] }
+    ]
+  },
+  {
+    titre:"Série 3",
+    data:[
+      { phrase:"Je nettoie les ___.", solution:"bureaux", choix:["bureaux","pauses","horaires"] },
+      { phrase:"Je laisse le poste ___.", solution:"propre", choix:["propre","retard","absent"] },
+      { phrase:"Je ___ le matériel après usage.", solution:"range", choix:["range","oublie","perds"] },
+      { phrase:"Je jette les ___.", solution:"déchets", choix:["déchets","horaires","collègues"] },
+      { phrase:"Je respecte le plan de ___.", solution:"nettoyage", choix:["nettoyage","pause","travail"] }
+    ]
+  },
+  {
+    titre:"Série 4",
+    data:[
+      { phrase:"Je porte des ___ de protection.", solution:"gants", choix:["gants","bureaux","pauses"] },
+      { phrase:"Je mets le ___ si nécessaire.", solution:"masque", choix:["masque","stylo","papier"] },
+      { phrase:"Je fais attention à la ___.", solution:"sécurité", choix:["sécurité","pause","vitesse"] },
+      { phrase:"Je signale un ___.", solution:"danger", choix:["danger","retard","collègue"] },
+      { phrase:"Je respecte les règles de ___.", solution:"sécurité", choix:["sécurité","travail","pause"] }
+    ]
+  },
+  {
+    titre:"Série 5",
+    data:[
+      { phrase:"Je travaille avec ___.", solution:"sérieux", choix:["sérieux","retard","pause"] },
+      { phrase:"Je suis ___ avec mes collègues.", solution:"respectueux", choix:["respectueux","absent","retard"] },
+      { phrase:"Je reste ___ au travail.", solution:"calme", choix:["calme","rapide","bruyant"] },
+      { phrase:"Je suis ___ et motivé.", solution:"attentif", choix:["attentif","fatigué","absent"] },
+      { phrase:"Je fais mon travail ___.", solution:"correctement", choix:["correctement","vite","mal"] }
+    ]
+  },
+  {
+    titre:"Série 6",
+    data:[
+      { phrase:"Je demande de l’___ si besoin.", solution:"aide", choix:["aide","pause","retard"] },
+      { phrase:"Je pose des ___.", solution:"questions", choix:["questions","pauses","erreurs"] },
+      { phrase:"Je ___ les consignes.", solution:"comprends", choix:["comprends","oublie","ignore"] },
+      { phrase:"Je ___ au chef.", solution:"parle", choix:["parle","fuis","cours"] },
+      { phrase:"Je ___ une solution.", solution:"cherche", choix:["cherche","évite","refuse"] }
+    ]
+  },
+  {
+    titre:"Série 7",
+    data:[
+      { phrase:"Je ___ à huit heures.", solution:"commence", choix:["commence","termine","pause"] },
+      { phrase:"Je ___ à midi.", solution:"termine", choix:["termine","commence","range"] },
+      { phrase:"Je travaille le ___.", solution:"matin", choix:["matin","soir","week-end"] },
+      { phrase:"Je travaille l’___.", solution:"après-midi", choix:["après-midi","matin","nuit"] },
+      { phrase:"Je travaille la ___.", solution:"semaine", choix:["semaine","pause","nuit"] }
+    ]
+  },
+  {
+    titre:"Série 8",
+    data:[
+      { phrase:"Je ___ le matériel.", solution:"prépare", choix:["prépare","oublie","jette"] },
+      { phrase:"Je ___ les outils.", solution:"vérifie", choix:["vérifie","perds","cache"] },
+      { phrase:"Je ___ avant de partir.", solution:"range", choix:["range","salit","ignore"] },
+      { phrase:"Je ___ le poste.", solution:"nettoie", choix:["nettoie","abandonne","casse"] },
+      { phrase:"Je ___ le travail.", solution:"termine", choix:["termine","commence","pause"] }
+    ]
+  },
+  {
+    titre:"Série 9",
+    data:[
+      { phrase:"Je suis ___ aujourd’hui.", solution:"présent", choix:["présent","absent","retard"] },
+      { phrase:"Je ne suis pas en ___.", solution:"retard", choix:["retard","pause","travail"] },
+      { phrase:"Je informe en cas d’___.", solution:"absence", choix:["absence","pause","travail"] },
+      { phrase:"Je respecte le ___.", solution:"planning", choix:["planning","désordre","hasard"] },
+      { phrase:"Je note les ___.", solution:"heures", choix:["heures","bureaux","outils"] }
+    ]
+  },
+  {
+    titre:"Série 10",
+    data:[
+      { phrase:"Je travaille avec une bonne ___.", solution:"organisation", choix:["organisation","pause","fatigue"] },
+      { phrase:"Je respecte les ___.", solution:"priorités", choix:["priorités","pauses","retards"] },
+      { phrase:"Je fais les tâches dans l’___.", solution:"ordre", choix:["ordre","désordre","hasard"] },
+      { phrase:"Je finis dans le ___ prévu.", solution:"temps", choix:["temps","retard","hasard"] },
+      { phrase:"Je suis ___ au travail.", solution:"fiable", choix:["fiable","absent","retard"] }
+    ]
   }
-  // ➜ jusqu’à 100 séries
 ];
+
 /* ========================= */
 
 let serieIndex = Number(localStorage.getItem("mt_progress")) || 0;
