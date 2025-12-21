@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Index des exercices</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+  --ink:#0e1b2b;
+  --paper:#f6efe2;
+  --accent:#c75d1b;
+  --accent-2:#0c6b6b;
+  --card:#fff7ea;
+  --border:#e0cdb3;
+  --shadow:0 18px 45px rgba(14,27,43,0.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Garamond","Palatino Linotype","Book Antiqua",serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 600px at 85% -10%, #f0c9a8 0%, transparent 60%),
+    radial-gradient(900px 500px at -10% 10%, #b6e2d5 0%, transparent 55%),
+    linear-gradient(180deg, #fff6e7 0%, #f2e8d8 100%);
+  min-height:100vh;
+}
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:34px 20px 50px;
+}
+header{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:28px;
+}
+.eyebrow{
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:12px;
+  color:#3e5c6a;
+}
+h1{
+  font-size:42px;
+  line-height:1.1;
+}
+.intro{
+  max-width:720px;
+  font-size:18px;
+  color:#2c3f4d;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 24px 55px rgba(14,27,43,0.22);
+}
+.tag{
+  display:inline-block;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:var(--accent-2);
+}
+.title{
+  font-size:20px;
+}
+.desc{
+  font-size:15px;
+  color:#3f4e5a;
+}
+.card a{
+  margin-top:auto;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  font-weight:700;
+  color:var(--accent);
+}
+.card a span{
+  display:inline-block;
+  transition:transform .2s ease;
+}
+.card a:hover span{transform:translateX(4px)}
+.footer{
+  margin-top:26px;
+  font-size:13px;
+  color:#49616a;
+}
+@media (max-width:640px){
+  h1{font-size:34px}
+  .intro{font-size:16px}
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Wex · exercices</div>
+      <h1>Index des exercices interactifs</h1>
+      <p class="intro">
+        Choisis une activite et lance l exercice. Chaque carte ouvre la page
+        correspondante dans ce dossier.
+      </p>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <div class="tag">Mots</div>
+        <div class="title">Apparier</div>
+        <p class="desc">Relier les bonnes paires de mots ou d expressions.</p>
+        <a href="apparier.html">Ouvrir <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="tag">Logique</div>
+        <div class="title">Classement par rang</div>
+        <p class="desc">Organiser des elements par ordre logique.</p>
+        <a href="classement-par-rang.html">Ouvrir <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="tag">Lecture</div>
+        <div class="title">Demeler des mots</div>
+        <p class="desc">Retrouver les mots caches ou melanges.</p>
+        <a href="demeler-mots.html">Ouvrir <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="tag">Lecture</div>
+        <div class="title">Demeler une phrase</div>
+        <p class="desc">Recomposer la phrase en retrouvant l ordre.</p>
+        <a href="demeler-phrase.html">Ouvrir <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="tag">Production</div>
+        <div class="title">Editeur A4</div>
+        <p class="desc">Un espace pour ecrire et mettre en page.</p>
+        <a href="editeur-a4.html">Ouvrir <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="tag">Ecriture</div>
+        <div class="title">Emails professionnels</div>
+        <p class="desc">Exercices sur la redaction d emails.</p>
+        <a href="emails-professionnels.html">Ouvrir <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="tag">Ecriture</div>
+        <div class="title">Lettre de motivation</div>
+        <p class="desc">Travailler la structure et le ton.</p>
+        <a href="lettre-motivation.html">Ouvrir <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="tag">Mots</div>
+        <div class="title">Mots caracteres</div>
+        <p class="desc">Jeu autour des caracteres dans les mots.</p>
+        <a href="mots-catacteres.html">Ouvrir <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="tag">Mots</div>
+        <div class="title">Mots meles</div>
+        <p class="desc">Grille de mots a retrouver.</p>
+        <a href="mots-meles.html">Ouvrir <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="tag">Mots</div>
+        <div class="title">Mots a trous</div>
+        <p class="desc">Completer les phrases avec le bon mot.</p>
+        <a href="mots-trous.html">Ouvrir <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="tag">Logique</div>
+        <div class="title">Paire / pas paire</div>
+        <p class="desc">Identifier les paires correctes.</p>
+        <a href="paire-pas-paire.html">Ouvrir <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="tag">Quiz</div>
+        <div class="title">Quiz professionnel</div>
+        <p class="desc">Questions sur le monde pro.</p>
+        <a href="quiz.html">Ouvrir <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="tag">Ecriture</div>
+        <div class="title">Retaper</div>
+        <p class="desc">Exercice de recopie et de vitesse.</p>
+        <a href="retaper.html">Ouvrir <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="tag">Quiz</div>
+        <div class="title">Vrai / faux</div>
+        <p class="desc">Verifier ses connaissances rapidement.</p>
+        <a href="vrai-faux.html">Ouvrir <span>→</span></a>
+      </article>
+    </section>
+
+    <div class="footer">Astuce: ajoute ce fichier en favori pour tout retrouver.</div>
+  </div>
+</body>
+</html>

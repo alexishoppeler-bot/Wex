@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Apparier – Parcours</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --brand:#0f766e;
+  --ok:#16a34a;
+  --err:#dc2626;
+  --bg:#0b1220;
+  --panel:#111827;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial, sans-serif;
+  display:flex;
+  justify-content:center;
+}
+
+.container{
+  width:100%;
+  max-width:900px;
+  padding:20px;
+}
+
+h1{text-align:center;margin-bottom:6px}
+.consigne{text-align:center;color:var(--muted);margin-bottom:10px}
+
+.global{
+  background:var(--panel);
+  padding:10px;
+  margin-bottom:12px;
+  border-radius:6px;
+  text-align:center;
+}
+
+.progress{
+  height:6px;
+  background:#1f2937;
+  margin-top:6px;
+}
+.progress-bar{
+  height:100%;
+  background:var(--brand);
+  width:0%;
+  transition:.3s;
+}
+
+.series-title{
+  text-align:center;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.list h2{
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+
+.item{
+  background:#1f2937;
+  padding:10px;
+  margin-bottom:6px;
+  cursor:pointer;
+  user-select:none;
+}
+
+.item.selected{outline:2px solid var(--brand)}
+.item.ok{background:rgba(22,163,74,.3)}
+.item.err{
+  background:rgba(220,38,38,.3);
+  animation:shake .25s;
+}
+
+@keyframes shake{
+  0%{transform:translateX(0)}
+  50%{transform:translateX(-4px)}
+  100%{transform:translateX(0)}
+}
+
+.lock{
+  opacity:.4;
+  pointer-events:none;
+}
+
+.end{
+  display:none;
+  text-align:center;
+  margin-top:20px;
+}
+
+button{
+  margin-top:10px;
+  padding:10px 16px;
+  background:var(--brand);
+  border:none;
+  color:white;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>Apparier</h1>
+<div class="consigne">Clique sur un mot, puis sur la bonne définition.</div>
+
+<div class="global">
+  <div id="globalText"></div>
+  <div class="progress">
+    <div class="progress-bar" id="globalBar"></div>
+  </div>
+  <div id="rewards"></div>
+</div>
+
+<div class="series-title" id="seriesTitle"></div>
+
+<div class="grid" id="exercise">
+  <div class="list" id="mots"><h2>Mots</h2></div>
+  <div class="list" id="defs"><h2>Définitions</h2></div>
+</div>
+
+<div class="end" id="end">
+  <h2>Bravo, parcours terminé 🎉</h2>
+  <button onclick="resetAll()">Recommencer</button>
+</div>
+
+</div>
+
+<script>
+/* =======================
+   🔽 MODÈLES VISIBLES
+   ======================= */
+const series = [
+  {
+    titre:"Série 1",
+    data:[
+      {id:1,mot:"Ponctuel",def:"Arriver à l’heure"},
+      {id:2,mot:"Consigne",def:"Instruction à respecter"},
+      {id:3,mot:"Équipe",def:"Personnes qui travaillent ensemble"},
+      {id:4,mot:"Sécurité",def:"Règles pour éviter les accidents"},
+      {id:5,mot:"Matériel",def:"Objets utilisés pour le travail"}
+    ]
+  },
+  {
+    titre:"Série 2",
+    data:[
+      {id:1,mot:"Pause",def:"Temps pour se reposer"},
+      {id:2,mot:"Horaire",def:"Heures de travail"},
+      {id:3,mot:"Chef",def:"Personne responsable"},
+      {id:4,mot:"Nettoyer",def:"Rendre propre"},
+      {id:5,mot:"Respect",def:"Suivre les règles"}
+    ]
+  }
+  // ➜ jusqu’à 100
+];
+
+let serieIndex = Number(localStorage.getItem("serieIndex")) || 0;
+let done = [];
+let selectedMot = null;
+
+const motsCol = document.getElementById("mots");
+const defsCol = document.getElementById("defs");
+
+function shuffle(a){return a.sort(()=>Math.random()-0.5)}
+
+function render(){
+  if(serieIndex >= series.length){
+    document.getElementById("exercise").style.display="none";
+    document.getElementById("end").style.display="block";
+    return;
+  }
+
+  const s = series[serieIndex];
+  document.getElementById("seriesTitle").textContent = s.titre;
+
+  motsCol.innerHTML="<h2>Mots</h2>";
+  defsCol.innerHTML="<h2>Définitions</h2>";
+
+  shuffle([...s.data]).forEach(o=>{
+    const d=document.createElement("div");
+    d.className="item";
+    d.textContent=o.mot;
+    d.dataset.id=o.id;
+    d.onclick=()=>selectMot(d);
+    motsCol.appendChild(d);
+  });
+
+  shuffle([...s.data]).forEach(o=>{
+    const d=document.createElement("div");
+    d.className="item";
+    d.textContent=o.def;
+    d.dataset.id=o.id;
+    d.onclick=()=>selectDef(d);
+    defsCol.appendChild(d);
+  });
+
+  updateGlobal();
+}
+
+function selectMot(el){
+  document.querySelectorAll("#mots .item").forEach(i=>i.classList.remove("selected"));
+  el.classList.add("selected");
+  selectedMot = el;
+}
+
+function selectDef(el){
+  if(!selectedMot) return;
+
+  if(el.dataset.id === selectedMot.dataset.id){
+    el.classList.add("ok");
+    selectedMot.classList.add("ok");
+    done.push(el.dataset.id);
+    selectedMot=null;
+
+    if(done.length === 5){
+      serieIndex++;
+      done=[];
+      localStorage.setItem("serieIndex", serieIndex);
+      setTimeout(render,400);
+    }
+  }else{
+    el.classList.add("err");
+    setTimeout(()=>el.classList.remove("err"),300);
+    selectedMot=null;
+  }
+}
+
+function updateGlobal(){
+  const total = series.length;
+  const percent = (serieIndex / total) * 100;
+  document.getElementById("globalBar").style.width = percent+"%";
+
+  let stars = "⭐".repeat(Math.floor(serieIndex/10));
+  let medal = serieIndex>=100?"🥇":serieIndex>=50?"🥈":serieIndex>=25?"🥉":"";
+
+  document.getElementById("globalText").textContent =
+    `Progression globale : ${serieIndex} / ${total} séries`;
+
+  document.getElementById("rewards").textContent =
+    `${stars} ${medal}`;
+}
+
+function resetAll(){
+  localStorage.clear();
+  location.reload();
+}
+
+render();
+</script>
+</body>
+</html>

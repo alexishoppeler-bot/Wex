@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Ré-taper le texte</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --bg:#0f172a;
+  --card:#020617;
+  --border:#1e293b;
+  --brand:#14b8a6;
+  --brand-soft:rgba(20,184,166,.15);
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --error:#ef4444;
+  --success:#22c55e;
+  --radius:14px;
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  height:100%;
+  margin:0;
+  overflow:hidden;
+}
+
+body{
+  font-family:"Open Sans", Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.app{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:14px;
+}
+
+.container{
+  width:100%;
+  max-width:800px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* cartes */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:12px 14px;
+}
+
+.title{
+  color:var(--brand);
+  font-weight:700;
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+.consigne{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.45;
+}
+
+.consigne strong{ color:var(--text); }
+
+/* ===== PROGRESSION ===== */
+.progress-card{
+  padding:10px 14px;
+}
+
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+
+.progress-bar{
+  width:100%;
+  height:10px;
+  background:#020617;
+  border:1px solid var(--border);
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--brand),#22c55e);
+  transition:width .3s ease;
+}
+
+/* phrase */
+.phrase{
+  font-size:17px;
+  line-height:1.45;
+  background:var(--brand-soft);
+  padding:12px;
+  border-left:4px solid var(--brand);
+  border-radius:10px;
+  word-break:break-word;
+}
+
+/* zone centrale */
+.main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-height:0;
+}
+
+/* textarea */
+textarea{
+  flex:1;
+  width:100%;
+  resize:none;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:#020617;
+  color:var(--text);
+  outline:none;
+  font-size:16px;
+  line-height:1.45;
+}
+
+textarea:focus{ border-color:var(--brand); }
+
+/* aperçu */
+.preview{
+  border:1px dashed var(--border);
+  border-radius:12px;
+  background:#020617;
+  padding:12px;
+  min-height:48px;
+  font-size:15px;
+  line-height:1.45;
+  word-break:break-word;
+}
+
+@keyframes blink{
+  0%{opacity:1}
+  50%{opacity:.35}
+  100%{opacity:1}
+}
+
+.badChar{
+  color:var(--error);
+  font-weight:800;
+  animation:blink 1s ease-in-out infinite;
+}
+
+/* fin */
+.end{
+  text-align:center;
+  font-weight:800;
+  font-size:22px;
+  color:var(--success);
+}
+
+.btn{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:var(--brand);
+  color:#022c22;
+  font-weight:800;
+  font-size:16px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+  <div class="container">
+
+    <!-- PROGRESSION -->
+    <div class="card progress-card" id="progressCard">
+      <div class="progress-top">
+        <span>Progression</span>
+        <span id="progressText">0 / 0</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- CONSIGNE -->
+    <div class="card" id="consigneCard">
+      <div class="title">Consigne</div>
+      <div class="consigne">
+        Retapez la phrase <strong>exactement</strong>.<br>
+        Quand vous avez terminé, appuyez sur <strong>Entrée</strong>.
+      </div>
+    </div>
+
+    <!-- PHRASE -->
+    <div class="card" id="phraseCard">
+      <div class="title">Phrase à retaper</div>
+      <div class="phrase" id="phrase"></div>
+    </div>
+
+    <!-- ZONE DE TRAVAIL -->
+    <div class="main" id="workZone">
+      <div class="card" style="flex:1;display:flex;flex-direction:column;gap:12px;">
+        <div class="title">Votre réponse</div>
+        <textarea id="input" spellcheck="false" autocomplete="off"></textarea>
+
+        <div>
+          <div class="title" style="margin:0 0 6px 0;">Aperçu après validation</div>
+          <div class="preview" id="preview"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FIN -->
+    <div class="card" id="endCard" style="display:none;">
+      <div class="end">🎉 Bravo, exercice terminé</div>
+      <button class="btn" id="resetBtn">Recommencer</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* =====================
+   DONNÉES
+===================== */
+const phrases = [
+  "Je travaille.",
+  "Je suis ponctuel.",
+  "Je respecte les consignes.",
+  "Je respecte les horaires.",
+  "Je travaille en équipe."
+];
+
+const APOST = new Set(["'", "’", "‘", "`", "´"]);
+
+/* =====================
+   CLÉS LOCALSTORAGE
+===================== */
+const STORE_INDEX = "rt_index";
+const STORE_INPUT_PREFIX = "rt_input_";
+
+/* =====================
+   ÉTAT
+===================== */
+let index = Number(localStorage.getItem(STORE_INDEX)) || 0;
+let hasValidated = false;
+
+/* =====================
+   DOM
+===================== */
+const phraseEl = document.getElementById("phrase");
+const input = document.getElementById("input");
+const preview = document.getElementById("preview");
+const endCard = document.getElementById("endCard");
+const resetBtn = document.getElementById("resetBtn");
+
+const consigneCard = document.getElementById("consigneCard");
+const phraseCard = document.getElementById("phraseCard");
+const workZone = document.getElementById("workZone");
+
+const progressCard = document.getElementById("progressCard");
+const progressText = document.getElementById("progressText");
+const progressFill = document.getElementById("progressFill");
+
+/* =====================
+   UTILS
+===================== */
+function eqChar(a,b){
+  if(a===b) return true;
+  if(APOST.has(a) && APOST.has(b)) return true;
+  return false;
+}
+
+function firstMismatch(expected, typed){
+  const max = Math.max(expected.length, typed.length);
+  for(let i=0;i<max;i++){
+    const e = expected[i];
+    const t = typed[i];
+    if(e===undefined || t===undefined) return i;
+    if(!eqChar(e,t)) return i;
+  }
+  return null;
+}
+
+function escapeHtml(s){
+  return (s||"")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+/* =====================
+   PROGRESSION
+===================== */
+function updateProgress(){
+  const total = phrases.length;
+  const current = Math.min(index, total);
+  progressText.textContent = `${current} / ${total}`;
+  progressFill.style.width = (current / total * 100) + "%";
+}
+
+/* =====================
+   RENDER
+===================== */
+function render(){
+  const expected = phrases[index];
+  const value = input.value || "";
+
+  if(!value){
+    preview.textContent = "";
+    return;
+  }
+
+  if(!hasValidated){
+    preview.textContent = value;
+    return;
+  }
+
+  const m = firstMismatch(expected, value);
+
+  if(m === null){
+    preview.textContent = value;
+    return;
+  }
+
+  const before = value.slice(0,m);
+  const ch = value[m] ?? "▯";
+  const after = value.slice(m+1);
+
+  preview.innerHTML =
+    escapeHtml(before) +
+    `<span class="badChar">${escapeHtml(ch)}</span>` +
+    escapeHtml(after);
+}
+
+/* =====================
+   NAVIGATION
+===================== */
+function finish(){
+  progressCard.style.display = "none";
+  consigneCard.style.display = "none";
+  phraseCard.style.display = "none";
+  workZone.style.display = "none";
+  endCard.style.display = "block";
+  input.blur();
+}
+
+function load(){
+  updateProgress();
+
+  if(index >= phrases.length){
+    finish();
+    return;
+  }
+
+  endCard.style.display = "none";
+  progressCard.style.display = "block";
+  consigneCard.style.display = "block";
+  phraseCard.style.display = "block";
+  workZone.style.display = "flex";
+
+  phraseEl.textContent = phrases[index];
+  input.value = localStorage.getItem(STORE_INPUT_PREFIX + index) || "";
+  preview.textContent = input.value;
+  hasValidated = false;
+  input.focus();
+}
+
+/* =====================
+   EVENTS
+===================== */
+input.addEventListener("input", () => {
+  hasValidated = false;
+  preview.textContent = input.value;
+  localStorage.setItem(STORE_INPUT_PREFIX + index, input.value);
+});
+
+input.addEventListener("keydown", (e) => {
+  if(e.key !== "Enter") return;
+  e.preventDefault();
+
+  hasValidated = true;
+
+  const expected = phrases[index];
+  const value = input.value || "";
+
+  if(value.length < expected.length){
+    render();
+    return;
+  }
+
+  if(firstMismatch(expected, value) === null){
+    index++;
+    localStorage.setItem(STORE_INDEX, index);
+    load();
+  }else{
+    render();
+  }
+});
+
+resetBtn.addEventListener("click", () => {
+  localStorage.removeItem(STORE_INDEX);
+  for(let i=0;i<phrases.length;i++){
+    localStorage.removeItem(STORE_INPUT_PREFIX + i);
+  }
+  index = 0;
+  load();
+});
+
+/* =====================
+   INIT
+===================== */
+load();
+</script>
+
+</body>
+</html>
