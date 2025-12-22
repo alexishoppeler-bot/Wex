@@ -149,106 +149,185 @@ button{
    🔽 MODÈLES VISIBLES
    ======================= */
 const series = [
-  {
-    titre:"Série 1",
-    data:[
-      {id:1,mot:"Ponctuel",def:"Arriver à l’heure"},
-      {id:2,mot:"Consigne",def:"Instruction à respecter"},
-      {id:3,mot:"Équipe",def:"Personnes qui travaillent ensemble"},
-      {id:4,mot:"Sécurité",def:"Règles pour éviter les accidents"},
-      {id:5,mot:"Matériel",def:"Objets utilisés pour le travail"}
-    ]
-  },
-  {
-    titre:"Série 2",
-    data:[
-      {id:1,mot:"Pause",def:"Temps pour se reposer"},
-      {id:2,mot:"Horaire",def:"Heures de travail"},
-      {id:3,mot:"Chef",def:"Personne responsable"},
-      {id:4,mot:"Nettoyer",def:"Rendre propre"},
-      {id:5,mot:"Respect",def:"Suivre les règles"}
-    ]
-  },
-  {
-    titre:"Série 3",
-    data:[
-      {id:1,mot:"Retard",def:"Arriver après l’heure"},
-      {id:2,mot:"Absence",def:"Ne pas être présent"},
-      {id:3,mot:"Tâche",def:"Travail à faire"},
-      {id:4,mot:"Aide",def:"Soutien donné à quelqu’un"},
-      {id:5,mot:"Responsable",def:"Personne qui décide"}
-    ]
-  },
-  {
-    titre:"Série 4",
-    data:[
-      {id:1,mot:"Ordre",def:"Instruction donnée"},
-      {id:2,mot:"Planning",def:"Organisation du temps"},
-      {id:3,mot:"Erreur",def:"Action incorrecte"},
-      {id:4,mot:"Attention",def:"Faire très soin"},
-      {id:5,mot:"Rangement",def:"Mettre en ordre"}
-    ]
-  },
-  {
-    titre:"Série 5",
-    data:[
-      {id:1,mot:"Autonomie",def:"Travailler seul"},
-      {id:2,mot:"Collègue",def:"Personne qui travaille avec moi"},
-      {id:3,mot:"Signalement",def:"Informer d’un problème"},
-      {id:4,mot:"Organisation",def:"Manière de s’organiser"},
-      {id:5,mot:"Qualité",def:"Bon niveau de travail"}
-    ]
-  },
-  {
-    titre:"Série 6",
-    data:[
-      {id:1,mot:"Priorité",def:"Ce qui est le plus important"},
-      {id:2,mot:"Contrôle",def:"Vérification du travail"},
-      {id:3,mot:"Procédure",def:"Étapes à suivre"},
-      {id:4,mot:"Préparation",def:"Action avant de commencer"},
-      {id:5,mot:"Respecter",def:"Suivre correctement"}
-    ]
-  },
-  {
-    titre:"Série 7",
-    data:[
-      {id:1,mot:"Efficacité",def:"Faire bien et vite"},
-      {id:2,mot:"Concentration",def:"Faire attention longtemps"},
-      {id:3,mot:"Conséquence",def:"Résultat d’une action"},
-      {id:4,mot:"Engagement",def:"Motivation au travail"},
-      {id:5,mot:"Fiabilité",def:"On peut compter sur la personne"}
-    ]
-  },
-  {
-    titre:"Série 8",
-    data:[
-      {id:1,mot:"Initiative",def:"Agir sans attendre"},
-      {id:2,mot:"Amélioration",def:"Rendre meilleur"},
-      {id:3,mot:"Adaptation",def:"Changer selon la situation"},
-      {id:4,mot:"Responsabilité",def:"Devoir à respecter"},
-      {id:5,mot:"Collaboration",def:"Travailler ensemble"}
-    ]
-  },
-  {
-    titre:"Série 9",
-    data:[
-      {id:1,mot:"Anticiper",def:"Prévoir à l’avance"},
-      {id:2,mot:"Objectif",def:"But à atteindre"},
-      {id:3,mot:"Méthode",def:"Façon de travailler"},
-      {id:4,mot:"Rigueur",def:"Grande précision"},
-      {id:5,mot:"Suivi",def:"Vérification dans le temps"}
-    ]
-  },
-  {
-    titre:"Série 10",
-    data:[
-      {id:1,mot:"Performance",def:"Bon résultat"},
-      {id:2,mot:"Professionnalisme",def:"Attitude correcte au travail"},
-      {id:3,mot:"Engagement",def:"Implication personnelle"},
-      {id:4,mot:"Améliorer",def:"Faire mieux"},
-      {id:5,mot:"Stabilité",def:"Rester constant"}
-    ]
-  }
+  // ===== Série 1 (A1) =====
+  { titre:"Série 1", data:[
+    {id:1,mot:"Ponctuel",def:"Arriver à l’heure"},
+    {id:2,mot:"Consigne",def:"Instruction à respecter"},
+    {id:3,mot:"Équipe",def:"Personnes qui travaillent ensemble"},
+    {id:4,mot:"Sécurité",def:"Règles pour éviter les accidents"},
+    {id:5,mot:"Matériel",def:"Objets utilisés pour le travail"}
+  ]},
+
+  // ===== Série 2 =====
+  { titre:"Série 2", data:[
+    {id:1,mot:"Pause",def:"Temps pour se reposer"},
+    {id:2,mot:"Horaire",def:"Heures de travail"},
+    {id:3,mot:"Chef",def:"Personne responsable"},
+    {id:4,mot:"Nettoyer",def:"Rendre propre"},
+    {id:5,mot:"Respect",def:"Suivre les règles"}
+  ]},
+
+  // ===== Série 3 =====
+  { titre:"Série 3", data:[
+    {id:1,mot:"Retard",def:"Arriver après l’heure"},
+    {id:2,mot:"Absence",def:"Ne pas être présent"},
+    {id:3,mot:"Tâche",def:"Travail à faire"},
+    {id:4,mot:"Aide",def:"Soutien donné à quelqu’un"},
+    {id:5,mot:"Responsable",def:"Personne qui décide"}
+  ]},
+
+  // ===== Série 4 =====
+  { titre:"Série 4", data:[
+    {id:1,mot:"Ordre",def:"Instruction donnée"},
+    {id:2,mot:"Planning",def:"Organisation du temps"},
+    {id:3,mot:"Erreur",def:"Action incorrecte"},
+    {id:4,mot:"Attention",def:"Faire avec soin"},
+    {id:5,mot:"Rangement",def:"Mettre en ordre"}
+  ]},
+
+  // ===== Série 5 =====
+  { titre:"Série 5", data:[
+    {id:1,mot:"Autonomie",def:"Travailler seul"},
+    {id:2,mot:"Collègue",def:"Personne qui travaille avec moi"},
+    {id:3,mot:"Signalement",def:"Informer d’un problème"},
+    {id:4,mot:"Organisation",def:"Manière de s’organiser"},
+    {id:5,mot:"Qualité",def:"Bon niveau de travail"}
+  ]},
+
+  // ===== Série 6 =====
+  { titre:"Série 6", data:[
+    {id:1,mot:"Priorité",def:"Ce qui est le plus important"},
+    {id:2,mot:"Contrôle",def:"Vérification du travail"},
+    {id:3,mot:"Procédure",def:"Étapes à suivre"},
+    {id:4,mot:"Préparation",def:"Action avant de commencer"},
+    {id:5,mot:"Respecter",def:"Suivre correctement"}
+  ]},
+
+  // ===== Série 7 =====
+  { titre:"Série 7", data:[
+    {id:1,mot:"Efficacité",def:"Faire bien et vite"},
+    {id:2,mot:"Concentration",def:"Faire attention longtemps"},
+    {id:3,mot:"Conséquence",def:"Résultat d’une action"},
+    {id:4,mot:"Engagement",def:"Motivation au travail"},
+    {id:5,mot:"Fiabilité",def:"On peut compter sur la personne"}
+  ]},
+
+  // ===== Série 8 =====
+  { titre:"Série 8", data:[
+    {id:1,mot:"Initiative",def:"Agir sans attendre"},
+    {id:2,mot:"Amélioration",def:"Rendre meilleur"},
+    {id:3,mot:"Adaptation",def:"Changer selon la situation"},
+    {id:4,mot:"Responsabilité",def:"Devoir à respecter"},
+    {id:5,mot:"Collaboration",def:"Travailler ensemble"}
+  ]},
+
+  // ===== Série 9 =====
+  { titre:"Série 9", data:[
+    {id:1,mot:"Anticiper",def:"Prévoir à l’avance"},
+    {id:2,mot:"Objectif",def:"But à atteindre"},
+    {id:3,mot:"Méthode",def:"Façon de travailler"},
+    {id:4,mot:"Rigueur",def:"Grande précision"},
+    {id:5,mot:"Suivi",def:"Vérification dans le temps"}
+  ]},
+
+  // ===== Série 10 =====
+  { titre:"Série 10", data:[
+    {id:1,mot:"Performance",def:"Bon résultat"},
+    {id:2,mot:"Professionnalisme",def:"Attitude correcte au travail"},
+    {id:3,mot:"Implication",def:"Participation active"},
+    {id:4,mot:"Améliorer",def:"Faire mieux"},
+    {id:5,mot:"Stabilité",def:"Rester constant"}
+  ]},
+
+  // ===== Série 11 (A2+) =====
+  { titre:"Série 11", data:[
+    {id:1,mot:"Communication",def:"Échanger des informations"},
+    {id:2,mot:"Consignes écrites",def:"Instructions par écrit"},
+    {id:3,mot:"Organisation du poste",def:"Manière d’installer son travail"},
+    {id:4,mot:"Sécurité collective",def:"Sécurité pour tout le monde"},
+    {id:5,mot:"Gestion du temps",def:"Bien utiliser le temps"}
+  ]},
+
+  // ===== Série 12 =====
+  { titre:"Série 12", data:[
+    {id:1,mot:"Autocontrôle",def:"Vérifier soi-même"},
+    {id:2,mot:"Régularité",def:"Faire souvent correctement"},
+    {id:3,mot:"Disponibilité",def:"Être prêt à aider"},
+    {id:4,mot:"Ponctualité",def:"Respect des horaires"},
+    {id:5,mot:"Fiable",def:"Sur qui on peut compter"}
+  ]},
+
+  // ===== Série 13 =====
+  { titre:"Série 13", data:[
+    {id:1,mot:"Réactivité",def:"Répondre rapidement"},
+    {id:2,mot:"Sérieux",def:"Faire attention à son travail"},
+    {id:3,mot:"Engagement professionnel",def:"Motivation au travail"},
+    {id:4,mot:"Organisation personnelle",def:"Bien se gérer"},
+    {id:5,mot:"Respect mutuel",def:"Respect entre personnes"}
+  ]},
+
+  // ===== Série 14 =====
+  { titre:"Série 14", data:[
+    {id:1,mot:"Autonomie progressive",def:"De plus en plus seul"},
+    {id:2,mot:"Capacité d’adaptation",def:"S’adapter au changement"},
+    {id:3,mot:"Esprit d’équipe",def:"Bien travailler ensemble"},
+    {id:4,mot:"Précision",def:"Travail exact"},
+    {id:5,mot:"Responsabilités",def:"Devoirs à respecter"}
+  ]},
+
+  // ===== Série 15 =====
+  { titre:"Série 15", data:[
+    {id:1,mot:"Planification",def:"Organisation à l’avance"},
+    {id:2,mot:"Priorisation",def:"Choisir l’ordre important"},
+    {id:3,mot:"Qualité du travail",def:"Niveau du travail"},
+    {id:4,mot:"Sécurité au travail",def:"Protection au travail"},
+    {id:5,mot:"Respect des délais",def:"Finir à temps"}
+  ]},
+
+  // ===== Série 16 =====
+  { titre:"Série 16", data:[
+    {id:1,mot:"Autonomie professionnelle",def:"Travailler seul correctement"},
+    {id:2,mot:"Organisation efficace",def:"Organisation qui fonctionne"},
+    {id:3,mot:"Gestion des priorités",def:"Choisir l’important"},
+    {id:4,mot:"Responsabilité individuelle",def:"Responsabilité personnelle"},
+    {id:5,mot:"Implication durable",def:"Engagement sur le temps"}
+  ]},
+
+  // ===== Série 17 =====
+  { titre:"Série 17", data:[
+    {id:1,mot:"Amélioration continue",def:"S’améliorer toujours"},
+    {id:2,mot:"Respect des procédures",def:"Suivre les règles"},
+    {id:3,mot:"Qualité constante",def:"Toujours bien travailler"},
+    {id:4,mot:"Autonomie complète",def:"Travailler seul"},
+    {id:5,mot:"Fiabilité professionnelle",def:"Confiance au travail"}
+  ]},
+
+  // ===== Série 18 =====
+  { titre:"Série 18", data:[
+    {id:1,mot:"Organisation optimale",def:"Très bonne organisation"},
+    {id:2,mot:"Professionnel",def:"Comportement sérieux"},
+    {id:3,mot:"Responsable du poste",def:"Personne en charge"},
+    {id:4,mot:"Respect des normes",def:"Suivre les règles"},
+    {id:5,mot:"Performance durable",def:"Bon travail dans le temps"}
+  ]},
+
+  // ===== Série 19 =====
+  { titre:"Série 19", data:[
+    {id:1,mot:"Engagement constant",def:"Motivation continue"},
+    {id:2,mot:"Autonomie avancée",def:"Travail très indépendant"},
+    {id:3,mot:"Organisation stratégique",def:"Organisation réfléchie"},
+    {id:4,mot:"Efficacité professionnelle",def:"Travail rapide et correct"},
+    {id:5,mot:"Qualité professionnelle",def:"Très bon niveau de travail"}
+  ]},
+
+  // ===== Série 20 (B1) =====
+  { titre:"Série 20", data:[
+    {id:1,mot:"Professionnalisme constant",def:"Bon comportement toujours"},
+    {id:2,mot:"Responsabilité professionnelle",def:"Assumer son travail"},
+    {id:3,mot:"Autonomie totale",def:"Travailler seul sans aide"},
+    {id:4,mot:"Performance professionnelle",def:"Très bon résultat"},
+    {id:5,mot:"Engagement durable",def:"Motivation sur le long terme"}
+  ]}
 ];
 
 
@@ -347,3 +426,4 @@ render();
 </script>
 </body>
 </html>
+
