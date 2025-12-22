@@ -133,10 +133,9 @@ const ITEMS = [
   { a:"chaud", b:"froid", type:"ant" },
   { a:"facile", b:"simple", type:"syn" },
   { a:"plein", b:"vide", type:"ant" },
-
-  // +10
   { a:"lent", b:"rapide", type:"ant" },
   { a:"arriver", b:"venir", type:"syn" },
+
   { a:"commencer", b:"terminer", type:"ant" },
   { a:"propre", b:"nettoyer", type:"syn" },
   { a:"grand", b:"petit", type:"ant" },
@@ -144,8 +143,66 @@ const ITEMS = [
   { a:"ouvrir", b:"entrer", type:"syn" },
   { a:"travailler", b:"bosser", type:"syn" },
   { a:"tôt", b:"tard", type:"ant" },
-  { a:"fort", b:"faible", type:"ant" }
+  { a:"fort", b:"faible", type:"ant" },
+  { a:"aider", b:"soutenir", type:"syn" },
+  { a:"sale", b:"propre", type:"ant" },
+
+  { a:"finir", b:"terminer", type:"syn" },
+  { a:"commencer", b:"finir", type:"ant" },
+  { a:"calme", b:"agité", type:"ant" },
+  { a:"triste", b:"content", type:"ant" },
+  { a:"rapide", b:"lent", type:"ant" },
+  { a:"facile", b:"difficile", type:"ant" },
+  { a:"proche", b:"loin", type:"ant" },
+  { a:"nettoyer", b:"salir", type:"ant" },
+  { a:"parler", b:"discuter", type:"syn" },
+  { a:"regarder", b:"voir", type:"syn" },
+
+  { a:"écouter", b:"entendre", type:"syn" },
+  { a:"partir", b:"quitter", type:"syn" },
+  { a:"entrer", b:"sortir", type:"ant" },
+  { a:"commencer", b:"démarrer", type:"syn" },
+  { a:"fatigué", b:"reposée", type:"ant" },
+  { a:"content", b:"heureux", type:"syn" },
+  { a:"vide", b:"rempli", type:"ant" },
+  { a:"ouvrir", b:"déplier", type:"syn" },
+  { a:"fermer", b:"clore", type:"syn" },
+  { a:"lourd", b:"léger", type:"ant" },
+
+  { a:"travailler", b:"fonctionner", type:"syn" },
+  { a:"aider", b:"empêcher", type:"ant" },
+  { a:"monter", b:"descendre", type:"ant" },
+  { a:"chaud", b:"tiède", type:"syn" },
+  { a:"propre", b:"rangé", type:"syn" },
+  { a:"sale", b:"malpropre", type:"syn" },
+  { a:"calme", b:"bruyant", type:"ant" },
+  { a:"vite", b:"rapidement", type:"syn" },
+  { a:"lent", b:"doucement", type:"syn" },
+  { a:"arrêter", b:"continuer", type:"ant" },
+
+  { a:"commencer", b:"lancer", type:"syn" },
+  { a:"finir", b:"arrêter", type:"syn" },
+  { a:"plein", b:"chargé", type:"syn" },
+  { a:"vide", b:"creux", type:"syn" },
+  { a:"fort", b:"puissant", type:"syn" },
+  { a:"faible", b:"fragile", type:"syn" },
+  { a:"ouvrir", b:"déverrouiller", type:"syn" },
+  { a:"fermer", b:"verrouiller", type:"syn" },
+  { a:"commencer", b:"stopper", type:"ant" },
+  { a:"propre", b:"désordre", type:"ant" },
+
+  { a:"travailler", b:"se reposer", type:"ant" },
+  { a:"rapide", b:"lentement", type:"ant" },
+  { a:"calme", b:"stressé", type:"ant" },
+  { a:"facile", b:"compliqué", type:"ant" },
+  { a:"important", b:"secondaire", type:"ant" },
+  { a:"ouvrir", b:"clôturer", type:"syn" },
+  { a:"arriver", b:"partir", type:"ant" },
+  { a:"proche", b:"éloigné", type:"ant" },
+  { a:"aider", b:"assister", type:"syn" },
+  { a:"finir", b:"compléter", type:"syn" }
 ];
+
 
 
 function shuffle(a){return [...a].sort(()=>Math.random()-0.5)}
@@ -267,3 +324,4 @@ load();
 
 </body>
 </html>
+
