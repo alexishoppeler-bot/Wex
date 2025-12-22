@@ -192,7 +192,7 @@ const SERIES = [
   ],
   [
     { text:"Je respecte mes collègues.", answer:true },
-    { text:"Je travaille seul sans parler.", answer:false },
+    { text:"Je travaille sans écouter personne.", answer:false },
     { text:"Je demande de l’aide si besoin.", answer:true }
   ],
   [
@@ -214,8 +214,114 @@ const SERIES = [
     { text:"Je respecte les consignes écrites.", answer:true },
     { text:"Je peux ignorer les règles.", answer:false },
     { text:"Je suis attentif au travail.", answer:true }
+  ],
+
+  [
+    { text:"Je respecte le planning.", answer:true },
+    { text:"Je travaille sans organisation.", answer:false },
+    { text:"Je termine les tâches prévues.", answer:true }
+  ],
+  [
+    { text:"Je préviens en cas d’absence.", answer:true },
+    { text:"Je ne dis rien quand je suis absent.", answer:false },
+    { text:"Je respecte les procédures.", answer:true }
+  ],
+  [
+    { text:"Je nettoie le matériel après usage.", answer:true },
+    { text:"Je laisse le matériel sale.", answer:false },
+    { text:"Je respecte l’hygiène.", answer:true }
+  ],
+  [
+    { text:"Je travaille calmement.", answer:true },
+    { text:"Je crie au travail.", answer:false },
+    { text:"Je reste concentré.", answer:true }
+  ],
+  [
+    { text:"Je respecte les règles de l’entreprise.", answer:true },
+    { text:"Je fais comme je veux.", answer:false },
+    { text:"Je suis fiable.", answer:true }
+  ],
+
+  [
+    { text:"Je prépare mon poste avant de commencer.", answer:true },
+    { text:"Je commence sans préparation.", answer:false },
+    { text:"Je m’organise pour la journée.", answer:true }
+  ],
+  [
+    { text:"Je fais attention à la sécurité des autres.", answer:true },
+    { text:"Je prends des risques inutiles.", answer:false },
+    { text:"Je porte les protections.", answer:true }
+  ],
+  [
+    { text:"Je respecte mes horaires de travail.", answer:true },
+    { text:"Je pars quand je veux.", answer:false },
+    { text:"Je suis ponctuel.", answer:true }
+  ],
+  [
+    { text:"Je communique avec mon responsable.", answer:true },
+    { text:"Je ne dis rien en cas de problème.", answer:false },
+    { text:"Je informe correctement.", answer:true }
+  ],
+  [
+    { text:"Je travaille avec motivation.", answer:true },
+    { text:"Je n’ai aucune envie de travailler.", answer:false },
+    { text:"Je fais des efforts.", answer:true }
+  ],
+
+  [
+    { text:"Je respecte le matériel.", answer:true },
+    { text:"Je casse les outils.", answer:false },
+    { text:"Je utilise correctement les équipements.", answer:true }
+  ],
+  [
+    { text:"Je fais attention à la qualité.", answer:true },
+    { text:"La qualité n’est pas importante.", answer:false },
+    { text:"Je vérifie mon travail.", answer:true }
+  ],
+  [
+    { text:"Je m’adapte aux consignes.", answer:true },
+    { text:"Je refuse de changer.", answer:false },
+    { text:"Je reste flexible.", answer:true }
+  ],
+  [
+    { text:"Je respecte mes collègues.", answer:true },
+    { text:"Je manque de respect.", answer:false },
+    { text:"Je travaille en bonne entente.", answer:true }
+  ],
+  [
+    { text:"Je termine mon travail à temps.", answer:true },
+    { text:"Je laisse le travail inachevé.", answer:false },
+    { text:"Je respecte les délais.", answer:true }
+  ],
+
+  [
+    { text:"Je travaille de manière organisée.", answer:true },
+    { text:"Je travaille dans le désordre.", answer:false },
+    { text:"Je planifie mes tâches.", answer:true }
+  ],
+  [
+    { text:"Je prends mes responsabilités.", answer:true },
+    { text:"Je évite mes responsabilités.", answer:false },
+    { text:"Je assume mon travail.", answer:true }
+  ],
+  [
+    { text:"Je respecte les consignes orales.", answer:true },
+    { text:"Je n’écoute pas.", answer:false },
+    { text:"Je applique ce qui est demandé.", answer:true }
+  ],
+  [
+    { text:"Je contribue à une bonne ambiance.", answer:true },
+    { text:"Je crée des conflits.", answer:false },
+    { text:"Je reste respectueux.", answer:true }
+  ],
+  [
+    { text:"Je travaille avec méthode.", answer:true },
+    { text:"Je travaille au hasard.", answer:false },
+    { text:"Je suis efficace.", answer:true }
   ]
+  // ➜ même logique à dupliquer si tu veux aller au-delà
 ];
+
 
 
 function shuffle(a){return [...a].sort(()=>Math.random()-0.5);}
@@ -344,3 +450,4 @@ loadQuestion();
 
 </body>
 </html>
+
